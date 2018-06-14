@@ -19,8 +19,9 @@
     </properties>
 
     <modules>
-
         <module>websocket</module>
+        <module>starter</module>
+        <module>startertest</module>
     </modules>
 
 
