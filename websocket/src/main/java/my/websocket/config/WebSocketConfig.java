@@ -19,8 +19,9 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(myHandler(), "/myHandler");
+        registry.addHandler(myHandler(), "/myHandler")
 //                .addInterceptors(new HttpSessionHandshakeInterceptor());
+                .setAllowedOrigins("*");
 //                .setAllowedOrigins("http://127.0.0.1");
     }
 

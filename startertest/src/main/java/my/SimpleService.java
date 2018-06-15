@@ -11,7 +11,6 @@ public class SimpleService {
     @Log
     public void test(int num) {
         System.out.println("----test---- " + num);
-        log.info("{}", num);
     }
 
     @Log

@@ -18,7 +18,6 @@ public class LogMethodInterceptor implements MethodInterceptor {
     }
 
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        System.out.println("call " + invocation.getMethod().getName());
         String methodName = invocation.getMethod().getName();
         if (exclude.contains(methodName)) {
             return invocation.proceed();
@@ -26,7 +25,8 @@ public class LogMethodInterceptor implements MethodInterceptor {
         long start = System.currentTimeMillis();
         Object result = invocation.proceed();
         long end = System.currentTimeMillis();
-        logger.info("====method({}), cost({}) ", methodName, (end - start));
+        String className = invocation.getMethod().getDeclaringClass().getName();
+        logger.info("method {}.{} cost {} millseconds ", className, methodName, (end - start));
         return result;
     }
 }
