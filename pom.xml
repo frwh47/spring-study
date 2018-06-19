@@ -22,6 +22,7 @@
         <module>websocket</module>
         <module>starter</module>
         <module>startertest</module>
+        <module>myspring</module>
     </modules>
 
 
