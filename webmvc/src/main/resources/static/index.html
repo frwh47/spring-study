@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>websocket 测试</title>
+    <script type="text/javascript">
+        //创建 websocket
+        var url = 'ws://127.0.0.1:8080/myHandler';
+        var sock = new WebSocket(url);
+
+        sock.onopen = function(){
+            console.log('开启 websocket 连接');
+            sayHello();
+        };
+
+        sock.onmessage = function(e){
+            console.log('接受信息',e.data);
+            setTimeout(function(){sayHello()},2000);
+        };
+
+        sock.onclose = function(){
+            console.log('关闭 websocket 连接');
+        };
+
+        function sayHello() {
+            console.log('发送信息：hello world!');
+            sock.send('form client: Hello world!');
+        }
+
+
+    </script>
+</head>
+
+<body>
+Hello world!
+
+</body>
+</html>
