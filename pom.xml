@@ -19,11 +19,13 @@
     </properties>
 
     <modules>
+        <module>myspring</module>
         <!--<module>redis</module>-->
         <module>starter</module>
         <module>startertest</module>
         <module>webmvc</module>
         <module>websocket</module>
     </modules>
+
 
 </project>
