@@ -25,7 +25,7 @@
         <module>startertest</module>
         <module>webmvc</module>
         <module>websocket</module>
+        <module>kafka</module>
     </modules>
-
 
 </project>
