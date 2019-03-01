@@ -11,6 +11,6 @@ public class DemoConsumer {
 
     @KafkaListener(topics = Const.TOPIC)
     public void receive(String message) {
-        log.debug(message);
+        log.info(message);
     }
 }
