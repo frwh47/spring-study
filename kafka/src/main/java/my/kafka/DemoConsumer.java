@@ -1,13 +1,16 @@
 package my.kafka;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DemoConsumer {
+    private Logger log = LoggerFactory.getLogger(DemoConsumer.class);
 
-    @KafkaListener(topics = Const.TOPIC)//"parkingRecordOut")
-    public void handleCarOutMessage(String message) {
-        System.out.println("receive: " + message);
+    @KafkaListener(topics = Const.TOPIC)
+    public void receive(String message) {
+        log.debug(message);
     }
 }
