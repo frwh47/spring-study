@@ -22,11 +22,11 @@ public class DemoProducer {
     @Scheduled(cron = "*/5 * * * * *")
     public void send() {
         String msg = "abc " + new Date();
-        ListenableFuture<SendResult<Integer, String>> future = kafkaTemplate.send(Const.TOPIC, msg);
+        ListenableFuture<SendResult<Integer, String>> future = kafkaTemplate.send(Config.TOPIC, msg);
         future.addCallback(new ListenableFutureCallback<SendResult<Integer, String>>() {
             @Override
             public void onSuccess(SendResult<Integer, String> result) {
-                log.info("send success {}", result.getProducerRecord().value());
+                log.info("send ==> {}", result.getProducerRecord().value());
             }
 
             @Override

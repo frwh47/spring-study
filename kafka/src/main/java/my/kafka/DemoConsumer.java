@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 public class DemoConsumer {
     private Logger log = LoggerFactory.getLogger(DemoConsumer.class);
 
-    @KafkaListener(topics = Const.TOPIC)
+    @KafkaListener(topics = {Config.TOPIC})
     public void receive(String message) {
-        log.info(message);
+        log.info("receive <== " + message);
     }
 }
