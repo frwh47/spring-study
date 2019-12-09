@@ -2,7 +2,7 @@ server:
   port: 8090
 spring:
   kafka:
-    bootstrap-servers: 10.103.22.93:9092,10.103.22.92:9092,10.103.22.89:9092
+    bootstrap-servers: 10.103.22.93:9093,10.103.22.92:9093,10.103.22.89:9093
     producer:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
