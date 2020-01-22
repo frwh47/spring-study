@@ -26,7 +26,7 @@ public class DemoProducer {
         future.addCallback(new ListenableFutureCallback<SendResult<Integer, String>>() {
             @Override
             public void onSuccess(SendResult<Integer, String> result) {
-                log.info("send ==> {}", result.getProducerRecord().value());
+//                log.info("send ==> {}", result.getProducerRecord().value());
             }
 
             @Override

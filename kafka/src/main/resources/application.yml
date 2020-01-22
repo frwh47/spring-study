@@ -8,4 +8,5 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
     consumer:
       group-id: test-20191209
+      enable-auto-commit: true
 
