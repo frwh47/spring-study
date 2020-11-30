@@ -20,12 +20,16 @@
 
     <modules>
         <module>myspring</module>
-        <!--<module>redis</module>-->
+        <module>redis</module>
         <module>starter</module>
         <module>startertest</module>
         <module>webmvc</module>
         <module>websocket</module>
         <module>kafka</module>
+        <module>security</module>
+        <module>mybatis-plus</module>
+        <module>rocketmq</module>
+        <module>mockito</module>
     </modules>
 
 </project>

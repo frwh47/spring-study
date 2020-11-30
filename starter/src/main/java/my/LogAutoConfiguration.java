@@ -34,10 +34,12 @@ public class LogAutoConfiguration extends AbstractPointcutAdvisor {
         logger.info("init LogAutoConfiguration end");
     }
 
+    @Override
     public Pointcut getPointcut() {
         return this.pointcut;
     }
 
+    @Override
     public Advice getAdvice() {
         return this.advice;
     }
