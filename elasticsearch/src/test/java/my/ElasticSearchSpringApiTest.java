@@ -21,7 +21,7 @@ public class ElasticSearchSpringApiTest {
 
         Book book = Book.build();
         IndexQuery indexQuery = new IndexQueryBuilder()
-                .withId(book.getId().toString())
+//                .withId(book.getId().toString())
                 .withObject(book)
                 .build();
         String documentId = elasticsearchOperations.index(indexQuery, IndexCoordinates.of("book"));
@@ -31,14 +31,45 @@ public class ElasticSearchSpringApiTest {
     }
 
     @Test
-    public void search() {
-        String id = "199";
-        Book book = elasticsearchOperations.get(id, Book.class, IndexCoordinates.of("book"));
+    public void get() {
+        int id = 199;
+        Book book = elasticsearchOperations.get(String.valueOf(id), Book.class, IndexCoordinates.of("book"));
         System.out.println(book);
         Assertions.assertNotNull(book);
+        Assertions.assertEquals(id, book.getId());
+    }
 
+    @Test
+    public void update() {
+        Book book = Book.build();
+        book.setId(199);
+        book.setName("elastic search in action");
+        IndexQuery indexQuery = new IndexQueryBuilder()
+//                .withId(book.getId().toString())
+                .withObject(book)
+                .build();
+        String documentId = elasticsearchOperations.index(indexQuery, IndexCoordinates.of("book"));
+        Assertions.assertNotNull(documentId);
+        System.out.println(book);
+    }
+
+
+    @Test
+    public void search() {
         Criteria criteria = new Criteria("name").contains("889b0e40")
                 .and("id").is("9995");
+        Query query = new CriteriaQuery(criteria);
+        SearchHits<Book> hints = elasticsearchOperations.search(query, Book.class, IndexCoordinates.of("book"));
+
+        for (SearchHit<Book> hit : hints.getSearchHits()) {
+            Book book2 = hit.getContent();
+            System.out.println(book2);
+        }
+    }
+
+    @Test
+    public void search2() {
+        Criteria criteria = new Criteria("id").lessThan("1000");
         Query query = new CriteriaQuery(criteria);
         SearchHits<Book> hints = elasticsearchOperations.search(query, Book.class, IndexCoordinates.of("book"));
 

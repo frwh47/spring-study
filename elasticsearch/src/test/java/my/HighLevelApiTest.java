@@ -35,7 +35,7 @@ public class HighLevelApiTest {
 
     @Test
     public void get() throws IOException {
-        GetRequest request = new GetRequest("book", "_doc", "7149");
+        GetRequest request = new GetRequest("book", "199");
         GetResponse result = highLevelClient.get(request, RequestOptions.DEFAULT);
         log.info("{}", result);
 
@@ -57,7 +57,7 @@ public class HighLevelApiTest {
 
     @Test
     void getWithIncludes() throws IOException {
-        GetRequest request = new GetRequest("book", "_doc", "7149");
+        GetRequest request = new GetRequest("book", "199");
         String[] includes = new String[]{"name"};
         FetchSourceContext fsc = new FetchSourceContext(true, includes, null);
         request.fetchSourceContext(fsc);
